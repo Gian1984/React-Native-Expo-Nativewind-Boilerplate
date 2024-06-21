@@ -1,50 +1,44 @@
-# Welcome to your Expo app 👋
+# How to install React Native / Expo / Nativewind
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## React Native Expo :
 
-## Get started
+**To create a new Expo project, run the following in your terminal :**
 
-1. Install dependencies
+    npx create-expo-app@latest
 
-   ```bash
-   npm install
-   ```
+**Install Watchman**
 
-2. Start the app
+    `brew update`
 
-   ```bash
-    npx expo start
-   ```
+	`brew install watchman`
 
-In the output, you'll find options to open the app in a
+## Nativewind :
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**1.  Install nativewind and its dependencies.**
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+    npm install nativewind
+    npm install --save-dev tailwindcss
+    npx tailwindcss init
 
-## Get a fresh project
+**2.  Replace the existing code in `tailwind.config.js` file with the code given below.**
 
-When you're ready, run:
+    content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}', ],
 
-```bash
-npm run reset-project
-```
+**3.  In your `babel.config.js` add this line**
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+    plugins: ["nativewind/babel"],
 
-## Learn more
+**4.  Use process(css).then(cb) to work with async plugins**
 
-To learn more about developing your project with Expo, look at the following resources:
+    npm install --save-dev tailwindcss@3.3.2
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+** 5. In the root of the project create a file called global.d.ts and add the code given below **
 
-## Join the community
+    /// <reference types="nativewind/types" />
 
-Join our community of developers creating universal apps.
+**6.  Run the command to run and clean the cache :**
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+    npx expo start -c
+
+
+
